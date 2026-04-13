@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Format — Deep Talks</title>
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Format — Deep Talks" />
+  <meta property="og:description" content="Group circle discussions in Canggu, Bali. A community for meaningful conversations." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/format.html" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── TOC ── */
+    .toc {
+      display: block;
+      position: static;
+      background: rgba(200,230,201,0.1);
+      border: 1px solid rgba(200,230,201,0.3);
+      border-radius: 6px;
+      padding: 1.3rem 1.6rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: toc-section;
+    }
+    .toc > ol > li { margin-bottom: 0.75rem; }
+    .toc a {
+      color: var(--grey-dark);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.25s, color 0.25s, padding 0.25s;
+      border-radius: 4px;
+      padding: 0.1rem 0.3rem;
+    }
+    .toc a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+    .toc-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .format-page-hero {
+      background: #f2f2f2;
+      background-image: none;
+      min-height: 200px;
+      padding: calc(60px + 2.5rem) 2rem 2.5rem;
+      margin-top: 0;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+    .page-hero.format-page-hero .page-hero-eyebrow {
+      color: var(--grey-dark);
+      margin-bottom: 0.85rem;
+    }
+    .page-hero.format-page-hero h1 {
+      color: var(--grey-dark);
+    }
+
+    .format-section { margin-bottom: 2rem; }
+    .format-section:last-child { margin-bottom: 0; }
+    .format-section h2 {
+      font-family: 'Times New Roman', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 1rem;
+    }
+    .format-section > p {
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .format-intro {
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 980px) {
+      .page-hero.format-page-hero {
+        text-align: center;
+        align-items: center;
+        padding-left: 0;
+      }
+
+      .content-section {
+        max-width: 1120px !important;
+        margin: 0 auto;
+        padding: 2rem 2rem 0 !important;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        grid-template-rows: auto;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .toc {
+        margin: 0;
+        position: sticky;
+        top: 76px;
+        align-self: start;
+        grid-column: 2;
+        grid-row: 1 / span 10;
+        height: fit-content;
+        padding: 1rem 1.25rem;
+      }
+
+      .format-intro { grid-column: 1; }
+      .format-section { grid-column: 1; }
+    }
+
+    .mobile-toc-wrapper { display: none; }
+
+    @media (max-width: 979px) {
+      .page-hero.format-page-hero {
+        min-height: 160px;
+        padding: calc(60px + 2rem) 2rem 2rem;
+      }
+      .content-section {
+        display: block;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem 2rem;
+      }
+      .toc { display: none; }
+      .mobile-toc-wrapper {
+        display: block;
+        max-width: 820px;
+        margin: 1.5rem auto;
+        padding: 1.3rem 1.6rem;
+        background: rgba(200,230,201,0.1);
+        border: 1px solid rgba(200,230,201,0.3);
+        border-radius: 6px;
+      }
+      .mobile-toc-wrapper .toc-title { text-align: right; font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.75rem; }
+      .mobile-toc-list { list-style: none; padding: 0; margin: 0; text-align: right; }
+      .mobile-toc-list li { margin-bottom: 0.75rem; }
+      .mobile-toc-list a { color: var(--grey-dark); text-decoration: none; font-size: 0.88rem; border-radius: 4px; padding: 0.1rem 0.3rem; transition: background 0.25s, color 0.25s, padding 0.25s; }
+      .mobile-toc-list a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+    }
+
+    .flags-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .flag-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: rgba(140, 195, 158, 0.08);
+      border: 1px solid rgba(140, 195, 158, 0.25);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .flag-card:hover {
+      background: rgba(140, 195, 158, 0.14);
+      border-color: rgba(140, 195, 158, 0.45);
+    }
+
+    .flag-icon {
+      display: inline-flex;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 44px;
+      height: 48px;
+      position: relative;
+    }
+
+    .flag-icon::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--grey-dark);
+      border-radius: 2px;
+    }
+
+    .flag-icon::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 4px;
+      width: 36px;
+      height: 24px;
+      clip-path: polygon(0 0, 100% 0, 82% 50%, 100% 100%, 0 100%);
+    }
+
+    .flag-red::after    { background: #e53935; }
+    .flag-green::after  { background: #43a047; }
+    .flag-yellow::after { background: #fdd835; }
+    .flag-blue::after   { background: #1e88e5; }
+
+    .flag-label {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .flag-desc {
+      font-size: 0.85rem;
+      color: var(--green-dark);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .format-list {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 1.2rem;
+    }
+    .format-list li {
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 0.3rem;
+    }
+    .round-cards {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .round-card {
+      background: rgba(140, 195, 158, 0.08);
+      border: 1px solid rgba(140, 195, 158, 0.25);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .round-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 0.4rem;
+    }
+    .round-desc {
+      font-size: 0.9rem;
+      color: var(--green-dark);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .section-join-btn {
+      display: inline-block;
+      margin-top: 1.25rem;
+    }
+
+    .section-heading-with-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-logo {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="page-hero format-page-hero">
+    <p class="page-hero-eyebrow">How We Talk</p>
+    <h1>Format</h1>
+  </section>
+
+  <div class="mobile-toc-wrapper">
+    <p class="toc-title">Navigation</p>
+    <ol class="mobile-toc-list">
+      <li><a href="#deeptalks">Deep Talks</a></li>
+      <li><a href="#lovetalks">Love Talks</a></li>
+      <li><a href="#nalar">Nalar</a></li>
+      <li><a href="#deepcrafts">Deep Crafts</a></li>
+      <li><a href="#hands">Hands</a></li>
+      <li><a href="#flags">Flags</a></li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+
+    <!-- TABLE OF CONTENTS (desktop sidebar) -->
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">Navigation</p>
+      <ol>
+        <li><a href="#deeptalks">Deep Talks</a></li>
+        <li><a href="#lovetalks">Love Talks</a></li>
+        <li><a href="#nalar">Nalar</a></li>
+        <li><a href="#deepcrafts">Deep Crafts</a></li>
+        <li><a href="#hands">Hands</a></li>
+        <li><a href="#flags">Flags</a></li>
+      </ol>
+    </nav>
+
+    <p class="format-intro">Each community has its own format and rhythm. Below you'll find details on each group and how sessions work, along with the discussion formats we use.</p>
+
+    <!-- ── DEEP TALKS ── -->
+    <div class="format-section" id="deeptalks">
+      <h2 class="section-heading-with-logo">
+        <img src="images/deeptalks-green.webp" alt="" class="section-logo" />
+        Deep Talks
+      </h2>
+      <p>The original community. Group circle discussions held in Canggu, Bali every Tuesday at 18:30 at <a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener" style="color: var(--green-dark); text-underline-offset: 3px;">Awan Connection</a>. Topics range across the meaning of life and death, consciousness, justice, emotions, and more — whatever sparks a meaningful conversation.</p>
+      <p>Sessions are open to everyone. We ask only that you come with curiosity and respect for others in the circle. For how the session is run, see <a href="#hands" style="color: var(--green-dark); text-underline-offset: 3px;">Hands</a> and <a href="#flags" style="color: var(--green-dark); text-underline-offset: 3px;">Flags</a> below.</p>
+      <a class="btn-outline section-join-btn" data-wa-group="deeptalks" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── LOVE TALKS ── -->
+    <div class="format-section" id="lovetalks">
+      <h2 class="section-heading-with-logo">
+        <svg class="section-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="#c0392b"/>
+          <g transform="translate(8, 10) scale(3)">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.885.838-3.362.314-4.385C13.486.878 10.4.281 8.748 2.013zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" fill="#000"/>
+          </g>
+        </svg>
+        Love Talks
+      </h2>
+      <p>A space for men and women to explore love, relationships, and the deeper dynamics between us — honestly and openly. Once a month, led by research-based facilitator Carole.</p>
+      <p>Sessions follow the same circle format as Deep Talks, with a focus on lived experience and emotional honesty rather than abstract debate.</p>
+      <a class="btn-outline section-join-btn" data-wa-group="lovetalks" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── NALAR ── -->
+    <div class="format-section" id="nalar">
+      <h2 class="section-heading-with-logo">
+        <img src="images/nalar-logo.webp" alt="" class="section-logo" />
+        Nalar
+      </h2>
+      <p><em>Nalar</em> is an Indonesian word for the human capacity to think clearly, reason logically, and apply common sense. It's a twist on Deep Talks that aims to go deeper and be more informed — each session is built around shared material that everyone engages with beforehand.</p>
+      <p>Before each session, participants complete one of the following:</p>
+      <ul class="format-list">
+        <li>A 1-hour reading — an article or book chapter</li>
+        <li>A documentary</li>
+        <li>A podcast</li>
+        <li>Or something else entirely</li>
+      </ul>
+
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--grey-dark);">Submissions</strong></p>
+      <p>Topics are proposed by the community. Submit a topic via <a href="nalar-submissions.html" style="color: var(--green-dark); text-underline-offset: 3px;">this form</a> — briefly describe what you'd like to explore and why it's worth a session.</p>
+
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--grey-dark);">How sessions are organised</strong></p>
+      <ol class="format-list" style="list-style: decimal;">
+        <li>Everyone sends in submissions via <a href="nalar-submissions.html" style="color: var(--green-dark); text-underline-offset: 3px;">the submissions form</a>.</li>
+        <li>In <a data-wa-group="nalar" target="_blank" rel="noopener" style="color: var(--green-dark); text-underline-offset: 3px;">the group</a> a poll is opened so members can vote on which topic comes next.</li>
+        <li>Most votes win. Previously submitted topics that weren't chosen receive a vote boost the next round, and act as tiebreakers.</li>
+        <li>We meet every two weeks on Sunday at 10am at <i>to be determined</i>. Check the <a href="calendar.html" style="color: var(--green-dark); text-underline-offset: 3px;">topic calendar</a> for the most recent details.</li>
+      </ol>
+
+      <p>The session unfolds in two rounds:</p>
+      <div class="round-cards">
+        <div class="round-card">
+          <p class="round-label">Round 1 — Sharing</p>
+          <p class="round-desc">Each participant shares their insights and takeaways from the material in turn — a structured moment to hear every perspective before discussion begins.</p>
+        </div>
+        <div class="round-card">
+          <p class="round-label">Round 2 — Discussion</p>
+          <p class="round-desc">The group discusses the material together, with the goal of understanding it more deeply from a philosophical standpoint.</p>
+        </div>
+      </div>
+      <a class="btn-outline section-join-btn" data-wa-group="nalar" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── DEEP CRAFTS ── -->
+    <div class="format-section" id="deepcrafts">
+      <h2 class="section-heading-with-logo">
+        <svg class="section-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="#f0c419"/>
+          <g transform="translate(8, 8) scale(3)">
+            <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z" fill="#000"/>
+          </g>
+        </svg>
+        Deep Crafts
+      </h2>
+      <p>An initiative where we have a deep conversation about a topic while creating something related with our hands. Thinking and making, together.</p>
+      <p>Each session pairs a discussion topic with a hands-on craft activity — the making process slows the conversation down in the best way, opening up different kinds of thinking. Check the <a href="calendar.html" style="color: var(--green-dark); text-underline-offset: 3px;">calendar</a> for upcoming sessions.</p>
+      <a class="btn-outline section-join-btn" data-wa-group="deepcrafts" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── HANDS ── -->
+    <div class="format-section" id="hands">
+      <h2>Hands</h2>
+      <p>Sessions are held in a circle where only one person speaks at a time. You're welcome to respond directly after someone finishes — but if you'd like to speak, raising your hand signals that you're next in line. We stay mindful of who has their hand up and make space for them to go next. It keeps the conversation balanced and ensures everyone gets a fair turn.</p>
+      <p style="margin-bottom: 0;">For a fuller picture of how we run a typical Deep Talks session, visit the <a href="about.html" style="color: var(--green-dark); text-underline-offset: 3px;">About page</a>.</p>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── FLAGS ── -->
+    <div class="format-section" id="flags">
+      <h2>Flags</h2>
+      <p>Raise a coloured flag to signal how you want to respond, and the speaker chooses who goes next. Flags can be combined to express more nuanced responses — for example, green + red to signal both agreement and disagreement at once.</p>
+
+      <div class="flags-grid">
+        <div class="flag-card">
+          <span class="flag-icon flag-red"></span>
+          <div>
+            <p class="flag-label">Red — Disagree / Counterargument</p>
+            <p class="flag-desc">You want to challenge what was said or offer an opposing view.</p>
+          </div>
+        </div>
+
+        <div class="flag-card">
+          <span class="flag-icon flag-green"></span>
+          <div>
+            <p class="flag-label">Green — Agree / Elaborate</p>
+            <p class="flag-desc">You agree and want to build on or expand the point being made.</p>
+          </div>
+        </div>
+
+        <div class="flag-card">
+          <span class="flag-icon flag-yellow"></span>
+          <div>
+            <p class="flag-label">Yellow — Question for the speaker</p>
+            <p class="flag-desc">You have a question directed at the person who just spoke.</p>
+          </div>
+        </div>
+
+        <div class="flag-card">
+          <span class="flag-icon flag-blue"></span>
+          <div>
+            <p class="flag-label">Blue — Not Directed at Speaker</p>
+            <p class="flag-desc">You want to shift direction or respond to an earlier point. Can be combined — e.g. Blue + Yellow for a question to the whole group.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.content-section -->
+
+  <footer id="footer-root"></footer>
+  <script src="js/components.js"></script>
+  <script src="js/links.js"></script>
+</body>
+</html>

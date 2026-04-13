@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Deep Talks</title>
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About — Deep Talks" />
+  <meta property="og:description" content="Group circle discussions in Canggu, Bali. A community for meaningful conversations." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/about.html" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── TOC ── */
+    .toc {
+      display: block;
+      position: static;
+      background: rgba(200,230,201,0.1);
+      border: 1px solid rgba(200,230,201,0.3);
+      border-radius: 6px;
+      padding: 1.3rem 1.6rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: toc-section;
+    }
+    .toc > ol > li {
+      margin-bottom: 0.75rem;
+    }
+    .toc a {
+      color: var(--grey-dark);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.25s, color 0.25s, padding 0.25s;
+      border-radius: 4px;
+      padding: 0.1rem 0.3rem;
+    }
+    .toc a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+    .toc-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-soft);
+      margin-bottom: 0.75rem;
+    }
+    .toc ol ol {
+      margin-top: 0.4rem;
+      margin-left: 1.2rem;
+    }
+    .toc ol ol li { margin-bottom: 0.4rem; }
+    .toc ol ol a { font-size: 0.82rem; color: var(--green-dark); transition: background 0.25s, color 0.25s, padding 0.25s; border-radius: 4px; padding: 0.1rem 0.3rem; }
+    .toc ol ol a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+
+    .about-page-hero {
+      background: #f2f2f2;
+      background-image: none;
+      min-height: 200px;
+      padding: calc(60px + 2.5rem) 2rem 2.5rem;
+      margin-top: 0;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+
+    .page-hero.about-page-hero .page-hero-eyebrow {
+      color: var(--grey-dark);
+      margin-bottom: 0.85rem;
+    }
+
+    .page-hero.about-page-hero + .content-section {
+      padding-top: 0.5rem;
+    }
+
+    .about-section .section-tag {
+      color: var(--grey-dark);
+    }
+
+    .location-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(120,140,110,0.35);
+      padding-bottom: 1px;
+    }
+
+    @media (min-width: 980px) {
+      .page-hero.about-page-hero {
+        text-align: center;
+        align-items: center;
+        padding-left: 0;
+      }
+      .page-hero.about-page-hero .page-hero-eyebrow,
+      .page-hero.about-page-hero h1 {
+        max-width: 720px;
+      }
+
+      .content-section {
+        max-width: 1120px !important;
+        margin: 0 auto;
+        padding: 2rem 2rem 2rem !important;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        grid-template-rows: auto;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .toc {
+        margin: 0;
+        position: sticky;
+        top: 76px;
+        align-self: start;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        height: fit-content;
+        padding: 1rem 1.25rem;
+      }
+
+      .about-section {
+        grid-column: 1;
+      }
+    }
+
+    .mobile-toc-wrapper {
+      display: none;
+    }
+
+    @media (max-width: 979px) {
+      .page-hero.about-page-hero {
+        min-height: 160px;
+        padding: calc(60px + 2rem) 2rem 2rem;
+      }
+      .content-section {
+        display: block;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem 2rem;
+      }
+      .toc {
+        display: none;
+      }
+      .mobile-toc-wrapper {
+        display: block;
+        max-width: 820px;
+        margin: 1.5rem auto;
+        padding: 1.3rem 1.6rem;
+        background: rgba(200,230,201,0.1);
+        border: 1px solid rgba(200,230,201,0.3);
+        border-radius: 6px;
+      }
+      .mobile-toc-wrapper .toc-title { text-align: right; font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.75rem; }
+      .mobile-toc-list {
+        list-style: none;
+        text-align: right;
+        padding: 0;
+        margin: 0;
+      }
+      .mobile-toc-list li { margin-bottom: 0.75rem; }
+      .mobile-toc-list ol { list-style: none; padding: 0; margin: 0.4rem 0 0 0; }
+      .mobile-toc-list ol li { margin-bottom: 0.4rem; }
+      .mobile-toc-list a { color: var(--grey-dark); text-decoration: none; font-size: 0.88rem; border-radius: 4px; padding: 0.1rem 0.3rem; transition: background 0.25s, color 0.25s, padding 0.25s; }
+      .mobile-toc-list a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+      .mobile-toc-list ol a { font-size: 0.88rem; color: var(--green-dark); border-radius: 4px; padding: 0.1rem 0.3rem; transition: background 0.25s, color 0.25s, padding 0.25s; }
+      .mobile-toc-list ol a:hover { background: var(--green-dark); color: white; padding: 0.2rem 0.5rem; }
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .about-section { margin-bottom: 4rem; }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-number {
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      color: var(--grey-dark);
+      font-weight: 700;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .about-section h2 {
+      font-family: 'Times New Roman', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .about-section h3 {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin: 2rem 0 1rem;
+    }
+
+    .about-section p {
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── RULE CARDS ── */
+    .rules-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .rule-card {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(200,230,201,0.3);
+      border-radius: 5px;
+      padding: 1rem 1.2rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .rule-card:hover {
+      border-color: rgba(200,230,201,0.5);
+      background: rgba(200,230,201,0.1);
+    }
+
+    .rule-num {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      font-weight: 600;
+      text-align: right;
+      padding-top: 1px;
+    }
+
+    .rule-body {}
+
+    .rule-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--grey-dark);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .rule-desc {
+      font-size: 0.8rem;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── TIMETABLE ── */
+    .timetable {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 1.5rem;
+      margin-top: 1rem;
+      border-left: 2px solid var(--green-mid);
+      padding-left: 1.5rem;
+    }
+
+    .time-slot-time {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      padding: 0.5rem 0;
+      white-space: nowrap;
+    }
+
+    .time-slot-label {
+      font-size: 0.83rem;
+      color: var(--green-dark);
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(200,230,201,0.2);
+    }
+
+    .timetable-note {
+      grid-column: 1 / -1;
+      font-size: 0.72rem;
+      color: var(--green-dark);
+      margin-top: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── LOCATION CARD ── */
+    .location-card {
+      background: rgba(200,230,201,0.1);
+      border: 1px solid rgba(200,230,201,0.3);
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .location-icon { font-size: 1.5rem; }
+
+    .location-name {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.2rem;
+      color: var(--grey-dark);
+    }
+
+    .location-sub {
+      font-size: 0.78rem;
+      color: var(--green-dark);
+      margin-top: 0.2rem;
+    }
+
+    /* ── LATECOMERS ── */
+    .latecomer-steps {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .latecomer-steps li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.85rem;
+      color: var(--green-dark);
+      padding: 0.6rem 1rem;
+      border-left: 2px solid rgba(200,230,201,0.5);
+    }
+
+    .step-icon { color: var(--green-dark); font-style: normal; flex-shrink: 0; }
+
+    /* ── DIVIDER ── */
+    .about-divider {
+      border: none;
+      border-top: 1px solid rgba(200,230,201,0.3);
+      margin: 1.5rem 0 1rem;
+    }
+
+    /* ── PATHOS / ETHOS COLOURS ── */
+    .tag-ethos  { background: rgba(200,230,201,0.2); color: var(--green-mid); }
+    .tag-logos  { background: rgba(100,140,200,0.12); color: #9ab4e8; }
+    .tag-pathos { background: rgba(200,140,100,0.12); color: #e8c49a; }
+
+    .about-section .section-tag,
+    .about-section .section-tag.tag-ethos,
+    .about-section .section-tag.tag-logos,
+    .about-section .section-tag.tag-pathos {
+      color: var(--grey-dark);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="page-hero about-page-hero">
+    <p class="page-hero-eyebrow">Everything You Need To Know</p>
+    <h1>About Deep Talks</h1>
+  </section>
+
+  <div class="mobile-toc-wrapper">
+    <p class="toc-title">Navigation</p>
+    <ol class="mobile-toc-list">
+      <li><a href="#guidelines">Guidelines 1</a>
+        <ol>
+          <li><a href="#ethos">Ethos 1.1</a></li>
+          <li><a href="#logos">Logos 1.2</a></li>
+          <li><a href="#pathos">Pathos 1.3</a></li>
+        </ol>
+      </li>
+      <li><a href="#practical">Practical Information 2</a>
+        <ol>
+          <li><a href="#timetable">Timetable 2.1</a></li>
+          <li><a href="#location">Location 2.2</a></li>
+          <li><a href="#latecomers">Latecomers 2.3</a></li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content-section" style="max-width: 820px;">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">Navigation</p>
+      <ol>
+        <li>
+          <a href="#guidelines">1. Guidelines</a>
+          <ol>
+            <li><a href="#ethos">1.1 Ethos</a></li>
+            <li><a href="#logos">1.2 Logos</a></li>
+            <li><a href="#pathos">1.3 Pathos</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#practical">2. Practical Information</a>
+          <ol>
+            <li><a href="#timetable">2.1 Timetable</a></li>
+            <li><a href="#location">2.2 Location</a></li>
+            <li><a href="#latecomers">2.3 Latecomers</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ── 1. GUIDELINES ── -->
+    <div class="about-section" id="guidelines">
+      <div class="section-heading">
+        <span class="section-number">1</span>
+        <h2>Guidelines</h2>
+      </div>
+      <p>Deep Talks runs on three pillars — Ethos, Logos, and Pathos. Together they shape how we speak, reason, and listen.</p>
+
+      <!-- 1.1 ETHOS -->
+      <hr class="about-divider" id="ethos" />
+      <span class="section-tag tag-ethos">1.1 — Ethos</span>
+      <p>These 5 points of conduct form the ethos of our exchange. Everyone is encouraged to moderate each other on them.</p>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <span class="rule-num">1</span>
+          <div class="rule-body">
+            <p class="rule-name">Central</p>
+            <p class="rule-desc">One person speaks at a time. Multiple conversations at once are called a <em>breakaway</em> and are discouraged.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">2</span>
+          <div class="rule-body">
+            <p class="rule-name">Hands</p>
+            <p class="rule-desc">To maintain order, we prioritise those who raise their hands. This ensures equal speaking opportunities for everyone.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">3</span>
+          <div class="rule-body">
+            <p class="rule-name">Topical</p>
+            <p class="rule-desc">Stay on the current topic. Shifting to a different subject is called a <em>tangent</em> and should be avoided.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">4</span>
+          <div class="rule-body">
+            <p class="rule-name">Flow</p>
+            <p class="rule-desc">Build on what was just said. Introducing unrelated points or jumping back to an earlier idea is called <em>fragmenting</em> and breaks the flow.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">5</span>
+          <div class="rule-body">
+            <p class="rule-name">Fallacy</p>
+            <p class="rule-desc">Use clear reasoning. Avoid logical fallacies like <em>ad hominem</em> (personal attacks) and <em>strawman</em> (misrepresenting someone's argument).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2 LOGOS -->
+      <hr class="about-divider" id="logos" />
+      <span class="section-tag tag-logos">1.2 — Logos</span>
+      <p>These 15 well-established logical fallacies form the logos of the exchange. Know them so you can avoid them — and call them out respectfully.</p>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <span class="rule-num">1</span>
+          <div class="rule-body">
+            <p class="rule-name">Ad Hominem</p>
+            <p class="rule-desc">Attacking the person instead of the argument.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">2</span>
+          <div class="rule-body">
+            <p class="rule-name">Strawman</p>
+            <p class="rule-desc">Misrepresenting someone's argument to make it easier to attack. The opposite is the <em>steelman</em> — trying to defend the opponent's view — and it's highly encouraged.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">3</span>
+          <div class="rule-body">
+            <p class="rule-name">Appeal to Emotion</p>
+            <p class="rule-desc">Using fear, pity, or other emotions instead of reasoning.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">4</span>
+          <div class="rule-body">
+            <p class="rule-name">Appeal to Authority</p>
+            <p class="rule-desc">Citing authority as proof without examining the argument.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">5</span>
+          <div class="rule-body">
+            <p class="rule-name">Red Herring</p>
+            <p class="rule-desc">Diverting the argument to a different topic.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">6</span>
+          <div class="rule-body">
+            <p class="rule-name">Appeal to Popularity <em>(Ad Populum)</em></p>
+            <p class="rule-desc">Claiming something is true because many people believe it.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">7</span>
+          <div class="rule-body">
+            <p class="rule-name">Begging the Question <em>(Circular Reasoning)</em></p>
+            <p class="rule-desc">Assuming the conclusion within the premise.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">8</span>
+          <div class="rule-body">
+            <p class="rule-name">False Dilemma</p>
+            <p class="rule-desc">Presenting two options as if they are the only possibilities.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">9</span>
+          <div class="rule-body">
+            <p class="rule-name">Equivocation</p>
+            <p class="rule-desc">Using a word in different senses within the same argument.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">10</span>
+          <div class="rule-body">
+            <p class="rule-name">Amphiboly</p>
+            <p class="rule-desc">Using a grammatically ambiguous statement to mislead.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">11</span>
+          <div class="rule-body">
+            <p class="rule-name">Hasty Generalisation</p>
+            <p class="rule-desc">Drawing a broad conclusion from insufficient evidence.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">12</span>
+          <div class="rule-body">
+            <p class="rule-name">False Cause <em>(Post Hoc)</em></p>
+            <p class="rule-desc">Assuming that because A happened before B, A caused B.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">13</span>
+          <div class="rule-body">
+            <p class="rule-name">Slippery Slope</p>
+            <p class="rule-desc">Arguing that one small step will inevitably lead to extreme consequences.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">14</span>
+          <div class="rule-body">
+            <p class="rule-name">Appeal to Nature</p>
+            <p class="rule-desc">Arguing something is good simply because it's "natural".</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">15</span>
+          <div class="rule-body">
+            <p class="rule-name">No True Scotsman</p>
+            <p class="rule-desc">Redefining a group to exclude inconvenient counterexamples.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.3 PATHOS -->
+      <hr class="about-divider" id="pathos" />
+      <span class="section-tag tag-pathos">1.3 — Pathos</span>
+      <p>These guidelines support the pathos of our exchanges — creating a space of shared presence where all feel safe to speak and hear.</p>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <span class="rule-num">1</span>
+          <div class="rule-body">
+            <p class="rule-name">Presence</p>
+            <p class="rule-desc">Enter each conversation with awareness. Be fully here. Let go of distractions.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">2</span>
+          <div class="rule-body">
+            <p class="rule-name">Openness</p>
+            <p class="rule-desc">Listen with a willingness to be changed. Let others finish their thoughts before responding.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">3</span>
+          <div class="rule-body">
+            <p class="rule-name">Respect</p>
+            <p class="rule-desc">Acknowledge different perspectives without needing to agree. Honour each speaker as a person.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">4</span>
+          <div class="rule-body">
+            <p class="rule-name">Patience</p>
+            <p class="rule-desc">Allow space for silence and reflection. Take a pause if you feel reactive or defensive.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">5</span>
+          <div class="rule-body">
+            <p class="rule-name">Kindness</p>
+            <p class="rule-desc">Respond with care, even in disagreement. Challenge ideas, not people.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">6</span>
+          <div class="rule-body">
+            <p class="rule-name">Civility</p>
+            <p class="rule-desc">Avoid sarcasm, mockery, or tone that shuts others down. Maintain respect throughout.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">7</span>
+          <div class="rule-body">
+            <p class="rule-name">Courage</p>
+            <p class="rule-desc">Speak your truth with honesty, even when it feels vulnerable. Let discomfort be part of the growth.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">8</span>
+          <div class="rule-body">
+            <p class="rule-name">Consideration</p>
+            <p class="rule-desc">Be mindful of how your words land. Speak not just to be right, but to connect.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">9</span>
+          <div class="rule-body">
+            <p class="rule-name">Focus</p>
+            <p class="rule-desc">Return your attention to the discussion if your mind drifts. Remain engaged and intentional.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">10</span>
+          <div class="rule-body">
+            <p class="rule-name">Attention</p>
+            <p class="rule-desc">Notice your internal reactions. Self-awareness supports collective understanding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. PRACTICAL INFORMATION ── -->
+    <div class="about-section" id="practical">
+      <div class="section-heading">
+        <span class="section-number">2</span>
+        <h2>Practical Information</h2>
+      </div>
+
+      <!-- 2.1 TIMETABLE -->
+      <hr class="about-divider" id="timetable" />
+      <span class="section-tag tag-ethos">2.1 — Timetable</span>
+      <h3>Session Schedule</h3>
+
+      <div class="timetable">
+        <span class="time-slot-time">18:00</span>
+        <span class="time-slot-label">Walk in</span>
+
+        <span class="time-slot-time">18:30</span>
+        <span class="time-slot-label">Topic's introduction</span>
+
+        <span class="time-slot-time">18:45</span>
+        <span class="time-slot-label">Start exchange</span>
+
+        <span class="time-slot-time">21:00</span>
+        <span class="time-slot-label">Wrap up</span>
+
+        <span class="time-slot-time">21:30</span>
+        <span class="time-slot-label">End exchange</span>
+
+        <span class="timetable-note">* Actual times may vary</span>
+      </div>
+
+      <!-- 2.2 LOCATION -->
+      <hr class="about-divider" id="location" />
+      <span class="section-tag tag-ethos">2.2 — Location</span>
+      <h3>Where we meet</h3>
+
+      <div class="location-card">
+        <span class="location-icon">📍</span>
+        <div>
+          <p class="location-name"><a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener">Awan Connection — Cafe &amp; Coworking Space</a></p>
+          <p class="location-sub">Check the WhatsApp group announcement for any location changes.</p>
+      <div style="margin-top:1rem;">
+        <a class="btn-solid" data-wa-group="deeptalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+      </div>
+        </div>
+      </div>
+
+      <!-- 2.3 LATECOMERS -->
+      <hr class="about-divider" id="latecomers" />
+      <span class="section-tag tag-ethos">2.3 — Latecomers</span>
+      <h3>Arriving late?</h3>
+      <p>If you arrive during the topic introduction, please:</p>
+
+      <ul class="latecomer-steps">
+        <li>
+          <em class="step-icon">①</em>
+          Read the topic outline carefully before entering
+        </li>
+        <li>
+          <em class="step-icon">②</em>
+          Enter silently — don't interrupt the introduction
+        </li>
+        <li>
+          <em class="step-icon">③</em>
+          Don't order food or drinks until the introduction is over
+        </li>
+        <li>
+          <em class="step-icon">④</em>
+          Don't ask people to move seats
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer id="footer-root"></footer>
+  <script src="js/components.js"></script>
+  <script src="js/links.js"></script>
+</body>
+</html>

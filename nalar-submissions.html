@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nalar Submissions — Deep Talks</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nalar Submissions — Deep Talks" />
+  <meta property="og:description" content="Submit a topic for the next Nalar session." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/nalar-submissions.html" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .sub-page-hero {
+      background: #f2f2f2;
+      background-image: none;
+      min-height: 200px;
+      padding: calc(60px + 2.5rem) 2rem 2.5rem;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+    .page-hero.sub-page-hero .page-hero-eyebrow { color: var(--grey-dark); margin-bottom: 0.85rem; }
+    .page-hero.sub-page-hero h1 { color: var(--grey-dark); }
+
+    @media (max-width: 979px) {
+      .page-hero.sub-page-hero { min-height: 160px; padding: calc(60px + 2rem) 2rem 2rem; }
+    }
+
+    /* ── Content ── */
+    .sub-content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    .sub-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .sub-section h2 {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .sub-section p {
+      font-size: 0.9rem;
+      color: var(--green-dark);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .sub-section p:last-child { margin-bottom: 0; }
+
+    .sub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sub-list li {
+      font-size: 0.88rem;
+      color: var(--green-dark);
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .sub-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green-deep);
+    }
+
+    /* Criteria cards */
+    .criteria-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .criterion {
+      background: rgba(140, 195, 158, 0.08);
+      border: 1px solid rgba(140, 195, 158, 0.25);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+    }
+
+    .criterion-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--grey-dark);
+      margin-bottom: 0.25rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .criterion-desc {
+      font-size: 0.82rem;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Doesn't fit — muted */
+    .no-list li { color: var(--grey-mid); }
+    .no-list li::before { color: var(--grey-light); }
+
+    /* Divider */
+    .sub-divider {
+      border: none;
+      border-top: 1px solid rgba(140, 195, 158, 0.3);
+      margin: 0 0 2.25rem;
+    }
+
+    /* Confirm + submit */
+    .submit-area {
+      background: rgba(140, 195, 158, 0.07);
+      border: 1px solid rgba(140, 195, 158, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .confirm-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .confirm-label input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      accent-color: var(--green-dark);
+      cursor: pointer;
+    }
+
+    .confirm-label span {
+      font-size: 0.85rem;
+      color: var(--green-dark);
+      line-height: 1.6;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid var(--green-dark);
+      color: var(--green-dark);
+      text-decoration: none;
+      font-family: 'Times New Roman', serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.25s, border-color 0.25s, color 0.25s, opacity 0.25s;
+      cursor: not-allowed;
+      background: transparent;
+      opacity: 0.35;
+      align-self: flex-start;
+      pointer-events: none;
+    }
+
+    .btn-submit.active {
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .btn-submit.active:hover {
+      background: var(--green-dark);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="page-hero sub-page-hero">
+    <p class="page-hero-eyebrow">Nalar</p>
+    <h1>Submit a Topic</h1>
+  </section>
+
+  <div class="sub-content">
+
+    <!-- What can be submitted -->
+    <div class="sub-section">
+      <h2>What Can Be Submitted?</h2>
+      <p>Submissions should be informational works that aim to deepen understanding of a topic, rather than purely entertain.</p>
+      <p>We're looking for material that helps participants think clearly, reason rigorously, and engage with meaningful ideas.</p>
+      <p style="margin-bottom: 0.4rem; color: var(--grey-dark); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Accepted formats</p>
+      <ul class="sub-list">
+        <li>Articles or essays</li>
+        <li>Book chapters</li>
+        <li>Documentaries</li>
+        <li>Podcasts or recorded talks</li>
+        <li>Lectures, interviews, or debates</li>
+      </ul>
+    </div>
+
+    <hr class="sub-divider" />
+
+    <!-- Core criteria -->
+    <div class="sub-section">
+      <h2>Core Criteria</h2>
+      <p>A good submission should:</p>
+      <div class="criteria-grid">
+        <div class="criterion">
+          <p class="criterion-title">Prioritise insight over storytelling</p>
+          <p class="criterion-desc">Analysis, argument, explanation, or investigation — not narrative for its own sake.</p>
+        </div>
+        <div class="criterion">
+          <p class="criterion-title">Be grounded in reality</p>
+          <p class="criterion-desc">Philosophy, psychology, science, society, culture — something with real-world stakes.</p>
+        </div>
+        <div class="criterion">
+          <p class="criterion-title">Offer something to think about</p>
+          <p class="criterion-desc">A perspective, argument, framework, or question that's worth discussing together.</p>
+        </div>
+        <div class="criterion">
+          <p class="criterion-title">Take between 30 minutes and 2 hours to consume</p>
+          <p class="criterion-desc">Enough depth to generate discussion, not so long it becomes a burden.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sub-divider" />
+
+    <!-- Format requirements -->
+    <div class="sub-section">
+      <h2>Format Requirements</h2>
+      <ul class="sub-list">
+        <li>The material must be digitally accessible for free</li>
+        <li>Submissions must include either a direct link to the material, or a file shared with the host</li>
+      </ul>
+    </div>
+
+    <hr class="sub-divider" />
+
+    <!-- What doesn't fit -->
+    <div class="sub-section">
+      <h2>What Doesn't Fit</h2>
+      <ul class="sub-list no-list">
+        <li>Fiction — novels, short stories, narrative films</li>
+        <li>Content primarily designed for entertainment</li>
+        <li>Highly technical material requiring specialised expertise</li>
+      </ul>
+    </div>
+
+    <hr class="sub-divider" />
+
+    <!-- Confirm + submit -->
+    <div class="submit-area">
+      <label class="confirm-label">
+        <input type="checkbox" id="confirm-read" />
+        <span>I have read and understood the submission requirements above.</span>
+      </label>
+      <a id="submit-btn" class="btn-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSfetCjBGXI0pkl9N-r7ComD7N93AQkwQ43oZlq-_-NBQ6iVfg/viewform?usp=sharing&ouid=108795890761694475453" target="_blank" rel="noopener">Submit a Topic</a>
+    </div>
+
+  </div>
+
+  <footer id="footer-root"></footer>
+
+  <script>
+    var checkbox = document.getElementById('confirm-read');
+    var btn = document.getElementById('submit-btn');
+    checkbox.addEventListener('change', function () {
+      btn.classList.toggle('active', checkbox.checked);
+    });
+  </script>
+
+  <script src="js/components.js"></script>
+</body>
+</html>

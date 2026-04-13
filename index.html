@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Talks</title>
+  <meta name="description" content="A community for meaningful conversations. Deep Talks, Love Talks & Nalar." />
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Deep Talks" />
+  <meta property="og:description" content="Group circle discussions in Canggu, Bali. A community for meaningful conversations." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="hero">
+
+    <img class="hero-logo" src="images/deeptalks-logo.webp" alt="Deep Talks Logo" />
+
+    <h1>Welcome to <em>Deep Talks</em></h1>
+    <p class="hero-tagline">GROUP CIRCLE DISCUSSIONS IN CANGGU BALI</p>
+
+    <div class="hero-buttons">
+      <a class="btn-outline" href="about.html">About</a>
+      <a class="btn-outline" href="calendar.html">Calendar</a>
+      <a class="btn-outline" href="format.html">Format</a>
+    </div>
+
+    <!-- Communities -->
+    <div class="communities">
+      <hr class="communities-divider" />
+      <p class="communities-title">Join the Announcement Groups</p>
+
+      <div class="carousel">
+        <!-- Nav: arrows + dots in one row -->
+        <div class="carousel-nav">
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">&#8592;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-index="0" aria-label="Deep Talks"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Love Talks"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Nalar"></button>
+            <button class="carousel-dot" data-index="3" aria-label="Deep Crafts"></button>
+          </div>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
+        </div>
+
+        <div class="carousel-viewport">
+            <div class="carousel-track">
+
+              <!-- Deep Talks -->
+              <div class="community-card">
+                <div class="card-info">
+                  <span class="card-badge">Original</span>
+                  <img class="card-logo" src="images/deeptalks-green.webp" alt="Deep Talks logo" />
+                  <h2 class="card-title">Deep Talks</h2>
+                  <p class="card-desc">The original community. Respectful discussions on a range of topics like the meaning of life and death, consciousness, justice, emotions, and more.</p>
+                </div>
+                <div class="card-join">
+                  <div class="qr-wrapper">
+                    <img data-wa-group="deeptalks" alt="Deep Talks WhatsApp QR Code" width="90" height="90" />
+                  </div>
+                  <div class="card-actions">
+                    <a class="btn-outline" data-wa-group="deeptalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" href="format.html#deeptalks">Learn More</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Love Talks -->
+              <div class="community-card">
+                <div class="card-info">
+                  <span class="card-badge spin-off">Spin-off</span>
+                  <svg class="card-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="32" fill="#c0392b"/>
+                    <g transform="translate(8, 10) scale(3)">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.885.838-3.362.314-4.385C13.486.878 10.4.281 8.748 2.013zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" fill="#000"/>
+                    </g>
+                  </svg>
+                  <h2 class="card-title">Love Talks</h2>
+                  <p class="card-desc">A space for men and women to explore love, relationships, and more honestly and openly. Once a month led by research-based mama Carole.</p>
+                </div>
+                <div class="card-join">
+                  <div class="qr-wrapper">
+                    <img data-wa-group="lovetalks" alt="Love Talks WhatsApp QR Code" width="90" height="90" />
+                  </div>
+                  <div class="card-actions">
+                    <a class="btn-outline" data-wa-group="lovetalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" href="format.html#lovetalks">Learn More</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nalar -->
+              <div class="community-card">
+                <div class="card-info">
+                  <span class="card-badge spin-off">Spin-off</span>
+                  <img class="card-logo" src="images/nalar-logo.webp" alt="Nalar logo" />
+                  <h2 class="card-title">Nalar</h2>
+                  <p class="card-desc">Small-scale discussion group that goes further. Each session is built around shared material everyone engages with beforehand.</p>
+                </div>
+                <div class="card-join">
+                  <div class="qr-wrapper">
+                    <img data-wa-group="nalar" alt="Nalar WhatsApp QR Code" width="90" height="90" />
+                  </div>
+                  <div class="card-actions">
+                    <a class="btn-outline" data-wa-group="nalar" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" href="format.html#nalar">Learn More</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deep Crafts -->
+              <div class="community-card">
+                <div class="card-info">
+                  <span class="card-badge spin-off">Spin-off</span>
+                  <svg class="card-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="32" fill="#f0c419"/>
+                    <g transform="translate(8, 8) scale(3)">
+                      <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z" fill="#000"/>
+                    </g>
+                  </svg>
+                  <h2 class="card-title">Deep Crafts</h2>
+                  <p class="card-desc">An initiative where we have a deep conversation about a topic while creating something related with our hands. Thinking and making, together.</p>
+                </div>
+                <div class="card-join">
+                  <div class="qr-wrapper">
+                    <img data-wa-group="deepcrafts" alt="Deep Crafts WhatsApp QR Code" width="90" height="90" />
+                  </div>
+                  <div class="card-actions">
+                    <a class="btn-outline" data-wa-group="deepcrafts" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" href="format.html#deepcrafts">Learn More</a>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /.carousel-track -->
+          </div><!-- /.carousel-viewport -->
+      </div><!-- /.carousel -->
+    </div><!-- /.communities -->
+
+  </section>
+
+  <script src="js/components.js"></script>
+  <script src="js/links.js"></script>
+  <script>
+    (function () {
+      var track = document.querySelector('.carousel-track');
+      var viewport = document.querySelector('.carousel-viewport');
+      var slides = track.querySelectorAll('.community-card');
+      var dots = document.querySelectorAll('.carousel-dot');
+      var prevBtn = document.querySelector('.carousel-arrow--prev');
+      var nextBtn = document.querySelector('.carousel-arrow--next');
+      var current = 0;
+      var dragStartX = 0;
+      var dragDelta = 0;
+      var isDragging = false;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      // Buttons + dots
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
+
+      // Keyboard arrow keys (only when carousel is in view / focused nearby)
+      document.addEventListener('keydown', function (e) {
+        var r = viewport.getBoundingClientRect();
+        var inView = r.top < window.innerHeight && r.bottom > 0;
+        if (!inView) return;
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+      });
+
+      // Touch swipe
+      track.addEventListener('touchstart', function (e) {
+        dragStartX = e.touches[0].clientX;
+        isDragging = true;
+      }, { passive: true });
+
+      track.addEventListener('touchend', function (e) {
+        if (!isDragging) return;
+        var diff = dragStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+        isDragging = false;
+      });
+
+      // Mouse drag
+      track.addEventListener('mousedown', function (e) {
+        dragStartX = e.clientX;
+        dragDelta = 0;
+        isDragging = true;
+        track.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+
+      document.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        dragDelta = dragStartX - e.clientX;
+      });
+
+      document.addEventListener('mouseup', function () {
+        if (!isDragging) return;
+        if (Math.abs(dragDelta) > 40) goTo(current + (dragDelta > 0 ? 1 : -1));
+        isDragging = false;
+        dragDelta = 0;
+        track.style.cursor = 'grab';
+      });
+    })();
+  </script>
+
+  <footer id="footer-root"></footer>
+
+</body>
+</html>
