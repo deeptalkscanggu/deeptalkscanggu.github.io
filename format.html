@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Format — Deep Talks</title>
-  <!-- Open Graph / Social sharing -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Format — Deep Talks" />
   <meta property="og:description" content="Group circle discussions in Canggu, Bali. A community for meaningful conversations." />
@@ -95,7 +94,6 @@
         align-items: center;
         padding-left: 0;
       }
-
       .content-section {
         max-width: 1120px !important;
         margin: 0 auto;
@@ -106,7 +104,6 @@
         gap: 2rem;
         align-items: start;
       }
-
       .toc {
         margin: 0;
         position: sticky;
@@ -117,7 +114,6 @@
         height: fit-content;
         padding: 1rem 1.25rem;
       }
-
       .format-intro { grid-column: 1; }
       .format-section { grid-column: 1; }
     }
@@ -157,7 +153,6 @@
       gap: 1.25rem;
       margin-top: 1.5rem;
     }
-
     .flag-card {
       display: flex;
       align-items: center;
@@ -168,12 +163,10 @@
       padding: 1.5rem 1.75rem;
       transition: background 0.2s, border-color 0.2s;
     }
-
     .flag-card:hover {
       background: rgba(140, 195, 158, 0.14);
       border-color: rgba(140, 195, 158, 0.45);
     }
-
     .flag-icon {
       display: inline-flex;
       align-items: flex-start;
@@ -182,7 +175,6 @@
       height: 48px;
       position: relative;
     }
-
     .flag-icon::before {
       content: '';
       position: absolute;
@@ -193,7 +185,6 @@
       background: var(--grey-dark);
       border-radius: 2px;
     }
-
     .flag-icon::after {
       content: '';
       position: absolute;
@@ -203,12 +194,10 @@
       height: 24px;
       clip-path: polygon(0 0, 100% 0, 82% 50%, 100% 100%, 0 100%);
     }
-
     .flag-red::after    { background: #e53935; }
     .flag-green::after  { background: #43a047; }
     .flag-yellow::after { background: #fdd835; }
     .flag-blue::after   { background: #1e88e5; }
-
     .flag-label {
       font-family: 'Times New Roman', serif;
       font-size: 1.25rem;
@@ -216,7 +205,6 @@
       color: var(--grey-dark);
       margin-bottom: 0.3rem;
     }
-
     .flag-desc {
       font-size: 0.85rem;
       color: var(--green-dark);
@@ -264,13 +252,11 @@
       display: inline-block;
       margin-top: 1.25rem;
     }
-
     .section-heading-with-logo {
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
-
     .section-logo {
       width: 2rem;
       height: 2rem;
@@ -278,6 +264,92 @@
       object-fit: cover;
       flex-shrink: 0;
     }
+
+    /* ── SOCRATIC RANDOMIZER ── */
+    .randomizer-card {
+      display: flex;
+      align-items: stretch;
+      background: rgba(44, 62, 80, 0.05);
+      border: 1px solid rgba(44, 62, 80, 0.16);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
+      min-height: 110px;
+    }
+    .randomizer-prompts {
+      flex: 1;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+    .prompt-name {
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey-dark);
+      opacity: 0.55;
+      min-height: 1em;
+    }
+    .prompt-display {
+      font-size: 0.9rem;
+      color: var(--green-dark);
+      line-height: 1.65;
+      transition: opacity 0.22s;
+    }
+    .prompt-placeholder {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--green-dark);
+    }
+    .dice-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0 1.4rem;
+      background: rgba(44, 62, 80, 0.08);
+      border: none;
+      border-left: 1px solid rgba(44, 62, 80, 0.13);
+      cursor: pointer;
+      color: var(--grey-dark);
+      transition: background 0.2s, color 0.2s;
+      min-width: 76px;
+      flex-shrink: 0;
+    }
+    .dice-btn:hover {
+      background: var(--grey-dark, #2c3e50);
+      color: #c8dfc0;
+    }
+    .dice-btn:hover .dice-svg circle {
+      fill: var(--grey-dark, #2c3e50);
+    }
+    .dice-svg {
+      width: 2.15rem;
+      height: 2.15rem;
+      color: currentColor;
+    }
+    .dice-btn.rolling .dice-svg {
+      animation: diceRoll 0.55s ease-out forwards;
+    }
+    .dice-label {
+      font-size: 0.63rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    @keyframes diceRoll {
+      0%   { transform: rotate(0deg)   scale(1); }
+      20%  { transform: rotate(72deg)  scale(1.18); }
+      40%  { transform: rotate(144deg) scale(0.92); }
+      60%  { transform: rotate(216deg) scale(1.1); }
+      80%  { transform: rotate(288deg) scale(0.96); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .prompt-display.fading { opacity: 0; }
   </style>
 </head>
 <body>
@@ -298,12 +370,12 @@
       <li><a href="#deepcrafts">Deep Crafts</a></li>
       <li><a href="#hands">Hands</a></li>
       <li><a href="#flags">Flags</a></li>
+      <li><a href="#socratic">Socratic</a></li>
     </ol>
   </div>
 
   <div class="content-section">
 
-    <!-- TABLE OF CONTENTS (desktop sidebar) -->
     <nav class="toc" aria-label="Table of contents">
       <p class="toc-title">Navigation</p>
       <ol>
@@ -313,6 +385,7 @@
         <li><a href="#deepcrafts">Deep Crafts</a></li>
         <li><a href="#hands">Hands</a></li>
         <li><a href="#flags">Flags</a></li>
+        <li><a href="#socratic">Socratic</a></li>
       </ol>
     </nav>
 
@@ -426,7 +499,6 @@
             <p class="flag-desc">You want to challenge what was said or offer an opposing view.</p>
           </div>
         </div>
-
         <div class="flag-card">
           <span class="flag-icon flag-green"></span>
           <div>
@@ -434,7 +506,6 @@
             <p class="flag-desc">You agree and want to build on or expand the point being made.</p>
           </div>
         </div>
-
         <div class="flag-card">
           <span class="flag-icon flag-yellow"></span>
           <div>
@@ -442,7 +513,6 @@
             <p class="flag-desc">You have a question directed at the person who just spoke.</p>
           </div>
         </div>
-
         <div class="flag-card">
           <span class="flag-icon flag-blue"></span>
           <div>
@@ -451,6 +521,70 @@
           </div>
         </div>
       </div>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
+    <!-- ── SOCRATIC ── -->
+    <div class="format-section" id="socratic">
+      <h2>Socratic</h2>
+      <p>A structured dialogue for two: one Respondent, one Socrates. The goal isn't to win, but to find the cracks. Socrates probes a thesis until both arrive at <em>aporia</em>: the productive discomfort of not knowing what you thought you knew.</p>
+      <p>The conversation should flow naturally. Below there's an <strong>Inquiry Randomizer</strong>, something to reach for when the dialogue feels too comfortable or too stuck. Socrates relies on intuition first; the tool is a last resort, not a script.</p>
+
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--grey-dark);">How a session runs</strong></p>
+      <div class="round-cards" style="margin-bottom: 1.5rem;">
+        <div class="round-card">
+          <p class="round-label">Starting Point</p>
+          <p class="round-desc">The central question or thesis is announced in the group. <em>e.g. "Is privacy a right or a preference?"</em> After the topic's introduction, we break into groups of two.</p>
+        </div>
+        <div class="round-card">
+          <p class="round-label">Round 1 · 30 min</p>
+          <p class="round-desc">One plays Socrates, the other the Respondent. The Respondent opens with their core thesis. Socrates probes it, following intuition first, reaching for the Randomizer if they feel stuck.</p>
+        </div>
+        <div class="round-card">
+          <p class="round-label">The Shift</p>
+          <p class="round-desc">Pairs switch roles. If you played Socrates, you should raise your hand and pair with someone who played the respondent.</p>
+        </div>
+        <div class="round-card">
+          <p class="round-label">Round 2 · 30 min</p>
+          <p class="round-desc">Same as round 1 but now you get to experience the other role. We can have a third or fourth round if time allows.</p>
+        </div>
+        <div class="round-card">
+          <p class="round-label">The Plenary · 30 min</p>
+          <p class="round-desc">The circle reconvenes. Each person shares their most productive <em>aporia</em> — the moment they realised they didn't know what they thought they knew.</p>
+        </div>
+      </div>
+
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--grey-dark);">Guidelines for Socrates</strong></p>
+      <ul class="format-list">
+        <li>Your role is the mirror, not the opponent. Show the Respondent the cracks in their own building, don't build your own.</li>
+        <li>Listen for the universal. When they give a personal example, ask whether it still holds as a general rule.</li>
+        <li>The Randomizer serves as inspiration, but shouldn't be leading. If a prompt doesn't fit the flow, skip it entirely.</li>
+        <li>Maintain neutrality. Being "right" is not the point.</li>
+      </ul>
+
+      <p style="margin-bottom: 0.4rem;"><strong style="color: var(--grey-dark);">The Inquiry Randomizer</strong></p>
+      <p>A digital companion for Socrates. Roll when you're unsure what to ask.</p>
+
+      <div class="randomizer-card" id="socratic-randomizer">
+        <div class="randomizer-prompts">
+          <div class="prompt-name" id="prompt-name"></div>
+          <div class="prompt-display" id="prompt-display">
+            <span class="prompt-placeholder">Roll the die to reveal an inquiry structure</span>
+          </div>
+        </div>
+        <button class="dice-btn" id="dice-btn" aria-label="Generate random inquiry prompt" title="Roll for a prompt">
+          <svg class="dice-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="58" height="58" rx="11" ry="11" fill="currentColor"/>
+            <circle cx="18" cy="18" r="5" fill="var(--color-background-primary, white)"/>
+            <circle cx="46" cy="18" r="5" fill="var(--color-background-primary, white)"/>
+            <circle cx="18" cy="32" r="5" fill="var(--color-background-primary, white)"/>
+            <circle cx="46" cy="32" r="5" fill="var(--color-background-primary, white)"/>
+            <circle cx="18" cy="46" r="5" fill="var(--color-background-primary, white)"/>
+            <circle cx="46" cy="46" r="5" fill="var(--color-background-primary, white)"/>
+          </svg>
+          <span class="dice-label">Roll</span>
+        </button>
+      </div>
     </div>
 
   </div><!-- /.content-section -->
@@ -458,5 +592,45 @@
   <footer id="footer-root"></footer>
   <script src="js/components.js"></script>
   <script src="js/links.js"></script>
+  <script>
+    (function () {
+      var PROMPTS = [
+        { name: "Reductio ad Absurdum", text: "If we accept this as an absolute rule, what is the most absurd or extreme situation it would still have to apply to?" },
+        { name: "Utility vs. Truth Pivot", text: "Is this actually true — or is it just a useful story we tell ourselves to keep things functioning?" },
+        { name: "The Boundary Marker", text: "At what exact threshold does the concept you're describing cease to be itself? Where is the line between 'enough' and 'too much'?" },
+        { name: "The Hidden Dependency", text: "What else must be true for your statement to hold weight? If we removed that assumption, would the argument collapse?" },
+        { name: "The Counter-Perspective", text: "If someone had lived the exact opposite life to yours, why might they find your conclusion impossible to accept?" },
+        { name: "The Logic Mirror", text: "You hold this position for a certain reason. Would you apply that exact same logic to a completely different category of thing?" },
+        { name: "Terminology Audit", text: "Can you make your point again — without using the key word you just used, or any of its synonyms?" }
+      ];
+
+      var last = -1;
+      var btn = document.getElementById('dice-btn');
+      var display = document.getElementById('prompt-display');
+      var nameEl = document.getElementById('prompt-name');
+
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        if (btn.classList.contains('rolling')) return;
+        btn.classList.add('rolling');
+        display.classList.add('fading');
+
+        setTimeout(function () {
+          var idx;
+          do { idx = Math.floor(Math.random() * PROMPTS.length); } while (idx === last && PROMPTS.length > 1);
+          last = idx;
+          var p = PROMPTS[idx];
+          display.textContent = p.text;
+          nameEl.textContent = p.name;
+          display.classList.remove('fading');
+        }, 240);
+
+        setTimeout(function () {
+          btn.classList.remove('rolling');
+        }, 580);
+      });
+    })();
+  </script>
 </body>
 </html>
