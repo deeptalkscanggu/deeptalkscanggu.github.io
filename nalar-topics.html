@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nalar Topics — Deep Talks</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nalar Topics — Deep Talks" />
+  <meta property="og:description" content="Upcoming and past topic options for Nalar sessions." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/nalar-topics.html" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .sub-page-hero {
+      background: #f2f2f2;
+      background-image: none;
+      min-height: 200px;
+      padding: calc(60px + 2.5rem) 2rem 2.5rem;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+    .page-hero.sub-page-hero .page-hero-eyebrow { color: var(--grey-dark); margin-bottom: 0.85rem; }
+    .page-hero.sub-page-hero h1 { color: var(--grey-dark); }
+
+    @media (max-width: 979px) {
+      .page-hero.sub-page-hero { min-height: 160px; padding: calc(60px + 2rem) 2rem 2rem; }
+    }
+
+    /* ── Layout ── */
+    .sub-content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    .sub-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .sub-section h2 {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .sub-section > p {
+      font-size: 0.9rem;
+      color: var(--green-dark);
+      line-height: 1.8;
+    }
+
+    .sub-divider {
+      border: none;
+      border-top: 1px solid rgba(140, 195, 158, 0.3);
+      margin: 0 0 2.25rem;
+    }
+
+    /* ── Session date badge ── */
+    .session-meta {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      background: rgba(140, 195, 158, 0.12);
+      border: 1px solid rgba(140, 195, 158, 0.3);
+      border-radius: 20px;
+      padding: 0.35rem 0.9rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+
+    /* ── Topic option cards ── */
+    .topics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .topic-option {
+      background: rgba(140, 195, 158, 0.08);
+      border: 1px solid rgba(140, 195, 158, 0.25);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+    }
+
+    .topic-option-number {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: rgba(43, 92, 68, 0.18);
+      user-select: none;
+      line-height: 1;
+    }
+
+    .topic-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .topic-field-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey-dark);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 0.15rem;
+    }
+
+    .topic-field-value {
+      font-size: 0.87rem;
+      color: var(--green-dark);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    a.topic-field-value,
+    .topic-field-value a {
+      color: var(--green-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: break-word;
+      word-break: break-all;
+    }
+
+    a.topic-field-value:hover,
+    .topic-field-value a:hover {
+      color: var(--grey-dark);
+    }
+
+    /* ── Past sessions ── */
+    .past-topics .topic-option {
+      opacity: 0.78;
+      transition: opacity 0.2s;
+    }
+
+    .past-topics .topic-option:hover {
+      opacity: 1;
+    }
+
+    .past-topics .topics-list + .session-meta {
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="page-hero sub-page-hero">
+    <p class="page-hero-eyebrow">Nalar</p>
+    <h1>Topics</h1>
+  </section>
+
+  <div class="sub-content">
+
+    <!-- ═══════════════════════════════════════════════════════
+         NEXT UP
+         ═══════════════════════════════════════════════════════ -->
+    <div class="sub-section">
+      <h2>Next Up</h2>
+      <p>Upcoming topic options. Vote in the <a href="#" data-wa-group="nalar" target="_blank" rel="noopener" style="color: var(--green-dark); text-underline-offset: 3px;">group chat poll</a> before this Saturday 12 PM.</p>
+
+      <div class="session-meta">10 AM · Sunday 7 June · Awan Connection</div>
+
+      <div class="topics-list">
+
+        <!-- ── Option 1 ── -->
+        <div class="topic-option">
+          <span class="topic-option-number">1</span>
+          <div class="topic-fields">
+            <div>
+              <p class="topic-field-label">Type of Material</p>
+              <p class="topic-field-value">Article or essay</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Description</p>
+              <p class="topic-field-value">Is consent enough to legalize being killed? Ethics behind the Meiwes cannibalism case.</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Objective</p>
+              <p class="topic-field-value">Exploring the friction between principles underlying this criminal case</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Link</p>
+              <a class="topic-field-value" href="https://scholarship.law.unc.edu/cgi/viewcontent.cgi?params=/context/ncilj/article/2019/&path_info=14_39NCJIntlL_ComReg423_2013_2014_.pdf" target="_blank" rel="noopener">scholarship.law.unc.edu — Ethics behind the Meiwes cannibalism case (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option 2 ── -->
+        <div class="topic-option">
+          <span class="topic-option-number">2</span>
+          <div class="topic-fields">
+            <div>
+              <p class="topic-field-label">Type of Material</p>
+              <p class="topic-field-value">Lecture</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Description</p>
+              <p class="topic-field-value">The seven stages of relationship development</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Objective</p>
+              <p class="topic-field-value">Explore the different stages relationships tend to move through and discuss how these patterns appear in real life.</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Link</p>
+              <a class="topic-field-value" href="https://drive.google.com/drive/folders/1Fe5nIYLWtI7iAxL8FV_a8tkR0nsxskev?usp=share_link" target="_blank" rel="noopener">Google Drive — Seven stages of relationship development</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option 3 ── -->
+        <div class="topic-option">
+          <span class="topic-option-number">3</span>
+          <div class="topic-fields">
+            <div>
+              <p class="topic-field-label">Type of Material</p>
+              <p class="topic-field-value">Podcast or recorded talk</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Description</p>
+              <p class="topic-field-value">Epstein's network: Analyze how power shielded him and discuss reforms.</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Objective</p>
+              <p class="topic-field-value">Analyze how legal and social power protected Epstein, and discuss reforms to prevent future abuse.</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Link</p>
+              <a class="topic-field-value" href="https://youtu.be/Q-pVBw7zo20?si=lw-jM3jJAnoB1kCO" target="_blank" rel="noopener">YouTube — Epstein's network</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── NEW SESSION TEMPLATE ─────────────────────────────────────────────
+           Fill in, then copy from <div class="session-meta"> down to and
+           including the closing </div> of topics-list. Paste directly into
+           the Past Topic Options section below — no wrapper needed.
+
+        <div class="session-meta">[TIME] · [DAY DATE MONTH] · [VENUE]</div>
+
+        <div class="topics-list">
+
+          <div class="topic-option">
+            <span class="topic-option-number">1</span>
+            <div class="topic-fields">
+              <div>
+                <p class="topic-field-label">Type of Material</p>
+                <p class="topic-field-value">—</p>
+              </div>
+              <div>
+                <p class="topic-field-label">Description</p>
+                <p class="topic-field-value">—</p>
+              </div>
+              <div>
+                <p class="topic-field-label">Objective</p>
+                <p class="topic-field-value">—</p>
+              </div>
+              <div>
+                <p class="topic-field-label">Link</p>
+                <a class="topic-field-value" href="#" target="_blank" rel="noopener">—</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      ─────────────────────────────────────────────────────────────────────── -->
+    </div>
+
+    <hr class="sub-divider" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         PAST TOPIC OPTIONS
+         To add a past session: copy the entire .past-session
+         block below, paste it after the opening comment, and
+         fill in the date and option cards. The date header is
+         written once per session; the .topic-option block
+         repeats for each submission.
+         ═══════════════════════════════════════════════════════ -->
+    <div class="sub-section past-topics">
+      <h2>Past Topic Options</h2>
+
+      <div class="session-meta">Sunday [date] · [venue]</div>
+
+      <div class="topics-list">
+
+        <!-- ── Option 1 ── -->
+        <div class="topic-option">
+          <span class="topic-option-number">1</span>
+          <div class="topic-fields">
+            <div>
+              <p class="topic-field-label">Type of Material</p>
+              <p class="topic-field-value">—</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Description</p>
+              <p class="topic-field-value">—</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Objective</p>
+              <p class="topic-field-value">—</p>
+            </div>
+            <div>
+              <p class="topic-field-label">Link</p>
+              <p class="topic-field-value">—</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer id="footer-root"></footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/links.js"></script>
+</body>
+</html>
