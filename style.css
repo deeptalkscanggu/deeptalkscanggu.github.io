@@ -1182,7 +1182,7 @@ footer a { color: var(--grey-dark); text-decoration: none; }
 /* ── Fullscreen button ── */
 #btn-fullscreen {
   position: fixed;
-  bottom: 1.25rem;
+  top: 1.25rem;
   right: 1.25rem;
   width: 40px;
   height: 40px;
