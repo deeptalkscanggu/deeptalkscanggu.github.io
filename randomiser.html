@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Randomiser — Deep Talks</title>
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body class="rnd-page">
+
+  <div id="rnd-app">
+
+    <img id="rnd-logo" src="images/deeptalks-logo.webp" alt="Deep Talks" />
+    <h1 id="rnd-heading">
+      <span class="rnd-heading-sub">Deep Talks</span>
+      <span class="rnd-heading-main">Randomiser</span>
+    </h1>
+
+    <div class="rnd-views">
+
+      <!-- HOME -->
+      <div id="view-home" class="rnd-view rnd-view--home" aria-hidden="true">
+        <a href="index.html" class="rnd-btn-sq" aria-label="Exit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16,17 21,12 16,7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </a>
+        <button id="btn-to-entries" class="rnd-btn-sq" aria-label="Entries">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+          </svg>
+        </button>
+        <button id="btn-to-start" class="rnd-btn-sq" aria-label="Start">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- ENTRIES -->
+      <div id="view-entries" class="rnd-view" aria-hidden="true">
+        <p class="rnd-instruction">Write the randomiser entries below, each new line is an entry</p>
+        <div class="rnd-actions">
+          <button id="btn-save"          class="rnd-btn rnd-btn--sm">Save</button>
+          <button id="btn-clear"         class="rnd-btn rnd-btn--sm rnd-btn--ghost">Clear</button>
+          <button id="btn-entries-back"  class="rnd-btn rnd-btn--sm rnd-btn--ghost">Back</button>
+        </div>
+        <textarea id="entries-field" class="rnd-textarea" placeholder="Alice&#10;Bob&#10;Charlie&#10;..."></textarea>
+        <p id="entry-count" class="rnd-count"></p>
+      </div>
+
+      <!-- DISPLAY -->
+      <div id="view-display" class="rnd-view" aria-hidden="true">
+        <div class="rnd-display-body">
+          <div id="rnd-entry" class="rnd-entry"></div>
+        </div>
+        <div class="rnd-nav rnd-nav--display">
+          <button id="btn-back" class="rnd-btn-circle" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+          </button>
+          <button id="btn-to-home" class="rnd-btn-circle" aria-label="Home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </button>
+          <button id="btn-next" class="rnd-btn-circle" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /.rnd-views -->
+  </div><!-- /#rnd-app -->
+
+  <script src="js/randomiser.js"></script>
+</body>
+</html>

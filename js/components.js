@@ -1,3 +1,9 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // ─────────────────────────────────────────────
   // SITE-WIDE COMPONENTS  –  nav + footer
@@ -59,17 +65,17 @@ document.addEventListener('DOMContentLoaded', function () {
   if (footerRoot) {
     footerRoot.innerHTML =
       '<div class="footer-info">' +
-        '<div>Location: <a href="' + MAPS_URL + '" target="_blank" rel="noopener">Awan Connection</a></div>' +
+        '<div>Location: <a href="' + MAPS_URL + '" target="_blank" rel="noopener noreferrer">Awan Connection</a></div>' +
         '<div>Time: Every Tuesday at 18:30</div>' +
       '</div>' +
       '<div class="footer-icons">' +
-        '<a class="footer-icon-link" href="' + INSTAGRAM_URL + '" target="_blank" rel="noopener" title="Instagram">' +
+        '<a class="footer-icon-link" href="' + INSTAGRAM_URL + '" target="_blank" rel="noopener noreferrer" title="Instagram">' +
           IC.instagram +
         '</a>' +
-        '<a class="footer-icon-link footer-icon-fb" href="' + FACEBOOK_URL + '" target="_blank" rel="noopener" title="Facebook">' +
+        '<a class="footer-icon-link footer-icon-fb" href="' + FACEBOOK_URL + '" target="_blank" rel="noopener noreferrer" title="Facebook">' +
           IC.facebook +
         '</a>' +
-        '<a class="footer-icon-link" href="' + NOMEO_URL + '" target="_blank" rel="noopener" title="Nomeo">' +
+        '<a class="footer-icon-link" href="' + NOMEO_URL + '" target="_blank" rel="noopener noreferrer" title="Nomeo">' +
           '<span class="footer-icon-nomeo" aria-label="Nomeo"></span>' +
         '</a>' +
       '</div>';

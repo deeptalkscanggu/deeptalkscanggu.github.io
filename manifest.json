@@ -1,0 +1,24 @@
+{
+  "name": "Deep Talks",
+  "short_name": "Deep Talks",
+  "description": "Group circle discussions in Canggu, Bali. A community for meaningful conversations.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b5c44",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://api.qrserver.com; connect-src https://docs.google.com ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Deep Talks</title>
   <!-- Open Graph / Social sharing -->
@@ -11,6 +12,12 @@
   <meta property="og:url" content="https://deeptalkscanggu.github.io/about.html" />
   <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
   <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
@@ -374,6 +381,7 @@
       margin-bottom: 0.4rem;
     }
   </style>
+
 </head>
 <body>
 
@@ -711,10 +719,10 @@
       <div class="location-card">
         <span class="location-icon">📍</span>
         <div>
-          <p class="location-name"><a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener">Awan Connection — Cafe &amp; Coworking Space</a></p>
+          <p class="location-name"><a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener noreferrer">Awan Connection — Cafe &amp; Coworking Space</a></p>
           <p class="location-sub">Check the WhatsApp group announcement for any location changes.</p>
       <div style="margin-top:1rem;">
-        <a class="btn-solid" data-wa-group="deeptalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+        <a class="btn-solid" data-wa-group="deeptalks" target="_blank" rel="noopener noreferrer">Join on WhatsApp</a>
       </div>
         </div>
       </div>

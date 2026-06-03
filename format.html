@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://api.qrserver.com; connect-src https://docs.google.com ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Format — Deep Talks</title>
   <meta property="og:type" content="website" />
@@ -10,6 +11,12 @@
   <meta property="og:url" content="https://deeptalkscanggu.github.io/format.html" />
   <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
   <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
@@ -351,6 +358,7 @@
     }
     .prompt-display.fading { opacity: 0; }
   </style>
+
 </head>
 <body>
 
@@ -371,6 +379,7 @@
       <li><a href="#hands">Hands</a></li>
       <li><a href="#flags">Flags</a></li>
       <li><a href="#opposite">Argue the Opposite</a></li>
+      <li><a href="#randomiser">Randomiser</a></li>
       <li><a href="#socratic">Socratic</a></li>
     </ol>
   </div>
@@ -387,6 +396,7 @@
         <li><a href="#hands">Hands</a></li>
         <li><a href="#flags">Flags</a></li>
         <li><a href="#opposite">Argue the Opposite</a></li>
+        <li><a href="#randomiser">Randomiser</a></li>
         <li><a href="#socratic">Socratic</a></li>
       </ol>
     </nav>
@@ -399,9 +409,9 @@
         <img src="images/deeptalks-green.webp" alt="" class="section-logo" />
         Deep Talks
       </h2>
-      <p>The original community. Group circle discussions held in Canggu, Bali every Tuesday at 18:30 at <a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener" style="color: var(--green-dark); text-underline-offset: 3px;">Awan Connection</a>. Topics range across the meaning of life and death, consciousness, justice, emotions, and more — whatever sparks a meaningful conversation.</p>
+      <p>The original community. Group circle discussions held in Canggu, Bali every Tuesday at 18:30 at <a href="https://maps.app.goo.gl/g7SFhJDFu26mUhKx5" target="_blank" rel="noopener noreferrer" style="color: var(--green-dark); text-underline-offset: 3px;">Awan Connection</a>. Topics range across the meaning of life and death, consciousness, justice, emotions, and more — whatever sparks a meaningful conversation.</p>
       <p>Sessions are open to everyone. We ask only that you come with curiosity and respect for others in the circle. For how the session is run, see <a href="#hands" style="color: var(--green-dark); text-underline-offset: 3px;">Hands</a> and <a href="#flags" style="color: var(--green-dark); text-underline-offset: 3px;">Flags</a> below.</p>
-      <a class="btn-outline section-join-btn" data-wa-group="deeptalks" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <a class="btn-outline section-join-btn" data-wa-group="deeptalks" target="_blank" rel="noopener noreferrer">Join Group on WhatsApp</a>
       <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
     </div>
 
@@ -418,7 +428,7 @@
       </h2>
       <p>A space for men and women to explore love, relationships, and the deeper dynamics between us — honestly and openly. Once a month, led by research-based facilitator Carole.</p>
       <p>Sessions follow the same circle format as Deep Talks, with a focus on lived experience and emotional honesty rather than abstract debate.</p>
-      <a class="btn-outline section-join-btn" data-wa-group="lovetalks" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <a class="btn-outline section-join-btn" data-wa-group="lovetalks" target="_blank" rel="noopener noreferrer">Join Group on WhatsApp</a>
       <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
     </div>
 
@@ -443,7 +453,7 @@
       <p style="margin-bottom: 0.5rem;"><strong style="color: var(--grey-dark);">How sessions are organised</strong></p>
       <ol class="format-list" style="list-style: decimal;">
         <li>Everyone sends in submissions via <a href="nalar-submissions.html" style="color: var(--green-dark); text-underline-offset: 3px;">the submissions form</a>.</li>
-        <li>In <a data-wa-group="nalar" target="_blank" rel="noopener" style="color: var(--green-dark); text-underline-offset: 3px;">the group</a> a poll is opened so members can vote on which topic comes next. View poll options <a href="nalar-topics.html" style="color: var(--green-dark); text-underline-offset: 3px;">here</a></li>
+        <li>In <a data-wa-group="nalar" target="_blank" rel="noopener noreferrer" style="color: var(--green-dark); text-underline-offset: 3px;">the group</a> a poll is opened so members can vote on which topic comes next. View poll options <a href="nalar-topics.html" style="color: var(--green-dark); text-underline-offset: 3px;">here</a></li>
         <li>Most votes win. The number in units place of 1 USD converted to IDR serves as a tiebreaker. For more info check the group description.</li>
         <li>We meet every two weeks on Sunday at 10am at <i>to be determined</i>. Check the <a href="calendar.html" style="color: var(--green-dark); text-underline-offset: 3px;">topic calendar</a> for the most recent details.</li>
       </ol>
@@ -459,7 +469,7 @@
           <p class="round-desc">The group discusses the material together, with the goal of understanding it more deeply from a philosophical standpoint.</p>
         </div>
       </div>
-      <a class="btn-outline section-join-btn" data-wa-group="nalar" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <a class="btn-outline section-join-btn" data-wa-group="nalar" target="_blank" rel="noopener noreferrer">Join Group on WhatsApp</a>
       <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
     </div>
 
@@ -476,7 +486,7 @@
       </h2>
       <p>An initiative where we have a deep conversation about a topic while creating something related with our hands. Thinking and making, together.</p>
       <p>Each session pairs a discussion topic with a hands-on craft activity — the making process slows the conversation down in the best way, opening up different kinds of thinking. Check the <a href="calendar.html" style="color: var(--green-dark); text-underline-offset: 3px;">calendar</a> for upcoming sessions.</p>
-      <a class="btn-outline section-join-btn" data-wa-group="deepcrafts" target="_blank" rel="noopener">Join Group on WhatsApp</a>
+      <a class="btn-outline section-join-btn" data-wa-group="deepcrafts" target="_blank" rel="noopener noreferrer">Join Group on WhatsApp</a>
       <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
     </div>
 
@@ -553,6 +563,19 @@
       <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
     </div>
 
+    <!-- ── RANDOMISER ── -->
+    <div class="format-section" id="randomiser">
+      <h2>Randomiser</h2>
+      <p>Sometimes we'll use a randomiser to determine what we talk about. This could be with:</p>
+      <ul class="format-list">
+        <li><strong style="color: var(--grey-dark);">Hot Take</strong> — everyone submits a hot take (controversial opinion) and we pick one at random</li>
+        <li><strong style="color: var(--grey-dark);">Quotes</strong> — we'll pick a random quote from a list</li>
+        <li><strong style="color: var(--grey-dark);">Words or WDYM (What Do You Mean?)</strong> — we'll pick a random word from a list</li>
+      </ul>
+      <a class="btn-outline section-join-btn" href="randomiser.html">Go to Randomiser</a>
+      <hr style="border: none; border-top: 1px solid rgba(200,230,201,0.5); margin: 1rem 0 0;" />
+    </div>
+
     <!-- ── SOCRATIC ── -->
     <div class="format-section" id="socratic">
       <h2>Socratic</h2>
@@ -621,45 +644,6 @@
   <footer id="footer-root"></footer>
   <script src="js/components.js"></script>
   <script src="js/links.js"></script>
-  <script>
-    (function () {
-      var PROMPTS = [
-        { name: "Reductio ad Absurdum", text: "If we accept this as an absolute rule, what is the most absurd or extreme situation it would still have to apply to?" },
-        { name: "Utility vs. Truth Pivot", text: "Is this actually true — or is it just a useful story we tell ourselves to keep things functioning?" },
-        { name: "The Boundary Marker", text: "At what exact threshold does the concept you're describing cease to be itself? Where is the line between 'enough' and 'too much'?" },
-        { name: "The Hidden Dependency", text: "What else must be true for your statement to hold weight? If we removed that assumption, would the argument collapse?" },
-        { name: "The Counter-Perspective", text: "If someone had lived the exact opposite life to yours, why might they find your conclusion impossible to accept?" },
-        { name: "The Logic Mirror", text: "You hold this position for a certain reason. Would you apply that exact same logic to a completely different category of thing?" },
-        { name: "Terminology Audit", text: "Can you make your point again — without using the key word you just used, or any of its synonyms?" }
-      ];
-
-      var last = -1;
-      var btn = document.getElementById('dice-btn');
-      var display = document.getElementById('prompt-display');
-      var nameEl = document.getElementById('prompt-name');
-
-      if (!btn) return;
-
-      btn.addEventListener('click', function () {
-        if (btn.classList.contains('rolling')) return;
-        btn.classList.add('rolling');
-        display.classList.add('fading');
-
-        setTimeout(function () {
-          var idx;
-          do { idx = Math.floor(Math.random() * PROMPTS.length); } while (idx === last && PROMPTS.length > 1);
-          last = idx;
-          var p = PROMPTS[idx];
-          display.textContent = p.text;
-          nameEl.textContent = p.name;
-          display.classList.remove('fading');
-        }, 240);
-
-        setTimeout(function () {
-          btn.classList.remove('rolling');
-        }, 580);
-      });
-    })();
-  </script>
+  <script src="js/format-randomizer.js"></script>
 </body>
 </html>

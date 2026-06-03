@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://api.qrserver.com; connect-src https://docs.google.com ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Talks</title>
   <meta name="description" content="A community for meaningful conversations. Deep Talks, Love Talks & Nalar." />
@@ -14,10 +15,17 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="1200" />
   <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+Balinese&display=swap" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
 
@@ -45,14 +53,14 @@
       <div class="carousel">
         <!-- Nav: arrows + dots in one row -->
         <div class="carousel-nav">
-          <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
           <div class="carousel-dots">
             <button class="carousel-dot active" data-index="0" aria-label="Deep Talks"></button>
             <button class="carousel-dot" data-index="1" aria-label="Love Talks"></button>
             <button class="carousel-dot" data-index="2" aria-label="Nalar"></button>
             <button class="carousel-dot" data-index="3" aria-label="Deep Crafts"></button>
           </div>
-          <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>
         </div>
 
         <div class="carousel-viewport">
@@ -71,7 +79,7 @@
                     <img data-wa-group="deeptalks" alt="Deep Talks WhatsApp QR Code" width="90" height="90" />
                   </div>
                   <div class="card-actions">
-                    <a class="btn-outline" data-wa-group="deeptalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" data-wa-group="deeptalks" target="_blank" rel="noopener noreferrer">Join on WhatsApp</a>
                     <a class="btn-outline" href="format.html#deeptalks">Learn More</a>
                   </div>
                 </div>
@@ -95,7 +103,7 @@
                     <img data-wa-group="lovetalks" alt="Love Talks WhatsApp QR Code" width="90" height="90" />
                   </div>
                   <div class="card-actions">
-                    <a class="btn-outline" data-wa-group="lovetalks" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" data-wa-group="lovetalks" target="_blank" rel="noopener noreferrer">Join on WhatsApp</a>
                     <a class="btn-outline" href="format.html#lovetalks">Learn More</a>
                   </div>
                 </div>
@@ -114,7 +122,7 @@
                     <img data-wa-group="nalar" alt="Nalar WhatsApp QR Code" width="90" height="90" />
                   </div>
                   <div class="card-actions">
-                    <a class="btn-outline" data-wa-group="nalar" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" data-wa-group="nalar" target="_blank" rel="noopener noreferrer">Join on WhatsApp</a>
                     <a class="btn-outline" href="format.html#nalar">Learn More</a>
                   </div>
                 </div>
@@ -138,7 +146,7 @@
                     <img data-wa-group="deepcrafts" alt="Deep Crafts WhatsApp QR Code" width="90" height="90" />
                   </div>
                   <div class="card-actions">
-                    <a class="btn-outline" data-wa-group="deepcrafts" target="_blank" rel="noopener">Join on WhatsApp</a>
+                    <a class="btn-outline" data-wa-group="deepcrafts" target="_blank" rel="noopener noreferrer">Join on WhatsApp</a>
                     <a class="btn-outline" href="format.html#deepcrafts">Learn More</a>
                   </div>
                 </div>
@@ -153,79 +161,7 @@
 
   <script src="js/components.js"></script>
   <script src="js/links.js"></script>
-  <script>
-    (function () {
-      var track = document.querySelector('.carousel-track');
-      var viewport = document.querySelector('.carousel-viewport');
-      var slides = track.querySelectorAll('.community-card');
-      var dots = document.querySelectorAll('.carousel-dot');
-      var prevBtn = document.querySelector('.carousel-arrow--prev');
-      var nextBtn = document.querySelector('.carousel-arrow--next');
-      var current = 0;
-      var dragStartX = 0;
-      var dragDelta = 0;
-      var isDragging = false;
-
-      function goTo(index) {
-        current = (index + slides.length) % slides.length;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dots.forEach(function (d, i) {
-          d.classList.toggle('active', i === current);
-        });
-      }
-
-      // Buttons + dots
-      prevBtn.addEventListener('click', function () { goTo(current - 1); });
-      nextBtn.addEventListener('click', function () { goTo(current + 1); });
-      dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function () { goTo(i); });
-      });
-
-      // Keyboard arrow keys (only when carousel is in view / focused nearby)
-      document.addEventListener('keydown', function (e) {
-        var r = viewport.getBoundingClientRect();
-        var inView = r.top < window.innerHeight && r.bottom > 0;
-        if (!inView) return;
-        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
-        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
-      });
-
-      // Touch swipe
-      track.addEventListener('touchstart', function (e) {
-        dragStartX = e.touches[0].clientX;
-        isDragging = true;
-      }, { passive: true });
-
-      track.addEventListener('touchend', function (e) {
-        if (!isDragging) return;
-        var diff = dragStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
-        isDragging = false;
-      });
-
-      // Mouse drag
-      track.addEventListener('mousedown', function (e) {
-        dragStartX = e.clientX;
-        dragDelta = 0;
-        isDragging = true;
-        track.style.cursor = 'grabbing';
-        e.preventDefault();
-      });
-
-      document.addEventListener('mousemove', function (e) {
-        if (!isDragging) return;
-        dragDelta = dragStartX - e.clientX;
-      });
-
-      document.addEventListener('mouseup', function () {
-        if (!isDragging) return;
-        if (Math.abs(dragDelta) > 40) goTo(current + (dragDelta > 0 ? 1 : -1));
-        isDragging = false;
-        dragDelta = 0;
-        track.style.cursor = 'grab';
-      });
-    })();
-  </script>
+  <script src="js/carousel.js"></script>
 
   <footer id="footer-root"></footer>
 

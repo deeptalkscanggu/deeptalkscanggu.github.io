@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://api.qrserver.com; connect-src https://docs.google.com ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Past Topics — Deep Talks</title>
   <!-- Open Graph / Social sharing -->
@@ -11,6 +12,12 @@
   <meta property="og:url" content="https://deeptalkscanggu.github.io/calendar.html" />
   <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
   <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
@@ -175,6 +182,7 @@
       display: none;
     }
   </style>
+
 </head>
 <body>
 
@@ -187,7 +195,7 @@
 
   <div class="content-section" style="max-width: 1000px;">
     <h2>What we've explored</h2>
-    <p>Every session has a distinct topic. Here's a full timeline since 2023.<br><span style="display:inline-block; margin-top:0.4rem;"></span><a href="https://docs.google.com/document/d/1xBx8RmBRYwU-6mp3Hej3AbbIZKCic1efqA3sg_OeXQI/" target="_blank" rel="noopener" style="color: var(--green-dark); text-decoration: underline; text-underline-offset: 3px;">Click here</a> to read all WhatsApp group announcement messages.</p>
+    <p>Every session has a distinct topic. Here's a full timeline since 2023.<br><span style="display:inline-block; margin-top:0.4rem;"></span><a href="https://docs.google.com/document/d/1xBx8RmBRYwU-6mp3Hej3AbbIZKCic1efqA3sg_OeXQI/" target="_blank" rel="noopener noreferrer" style="color: var(--green-dark); text-decoration: underline; text-underline-offset: 3px;">Click here</a> to read all WhatsApp group announcement messages.</p>
     <p class="count-badge" id="topic-count"></p>
     <p style="font-size:0.8rem; color:var(--green-dark); margin: 1.25rem 0 0.4rem;">Click to filter out:</p>
     <div class="filter-bar" id="filter-bar"></div>
@@ -209,146 +217,7 @@
 
   <footer id="footer-root"></footer>
 
-  <script>
-    const SHEET_ID = '1QpzZOz48kldrSdk-oZTo5Kws1HR8j83nCgIzDBUFGW8';
-    const GID      = '0';
-    const FEED_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${GID}`;
-
-    async function loadTopics() {
-      const container = document.getElementById('topics-container');
-      const countEl   = document.getElementById('topic-count');
-
-      try {
-        const res  = await fetch(FEED_URL);
-        const text = await res.text();
-
-        // Strip JSONP wrapper
-        const json = JSON.parse(
-          text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\)/)[1]
-        );
-
-        const rows = json.table?.rows || [];
-
-        // Skip the first row (header/label row in the sheet), filter on subject (col E)
-        const topics = rows.slice(1).filter(row => {
-          const subj = row.c?.[4]?.v ?? row.c?.[4]?.f;
-          return subj && String(subj).trim() !== '';
-        });
-
-        if (topics.length === 0) {
-          container.innerHTML = '<div class="empty-state">No topics recorded yet — check back after the next session.</div>';
-          return;
-        }
-
-        countEl.textContent = `${topics.length} session${topics.length !== 1 ? 's' : ''} and counting`;
-
-        // Collect unique column D values for filter buttons
-        const withValues = new Set();
-        topics.forEach(row => {
-          const v = (row.c?.[3]?.v || '').trim();
-          if (v) withValues.add(v);
-        });
-
-        // Render filter buttons
-        const filterBar = document.getElementById('filter-bar');
-        if (withValues.size > 0) {
-          filterBar.innerHTML = [...withValues].map(val =>
-            `<button class="filter-btn" data-filter="${esc(val)}">${esc(val)}</button>`
-          ).join('');
-
-          filterBar.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const val = btn.dataset.filter;
-              const isHidden = btn.classList.toggle('hidden-filter');
-              container.querySelectorAll('.topic-row').forEach(row => {
-                if (row.dataset.with === val) {
-                  row.classList.toggle('filtered-out', isHidden);
-                }
-              });
-            });
-          });
-        }
-
-        const html = topics.map((row, i) => {
-          const c       = row.c || [];
-          const date    = c[1]?.v || c[1]?.f || '';       // col B — prefer raw Date() value
-          const host    = c[2]?.v   || '';                 // col C
-          const withContent = (c[3]?.v || '').trim();     // col D
-          const subject = c[4]?.v ?? c[4]?.f ?? '';        // col E
-          const summary = c[5]?.v ?? c[5]?.f ?? '';        // col F
-
-          return `
-            <div class="topic-row" data-with="${esc(withContent)}" style="animation-delay:${i * 0.04}s">
-              <span class="topic-date">${esc(fmtDate(date))}</span>
-              <div class="topic-info">
-                <div class="topic-subject">${esc(subject)}</div>
-                ${host ? `<div class="topic-host">${esc(host)}${withContent ? `<span style="color:#111"> with ${esc(withContent)}</span>` : ''}</div>` : ''}
-              </div>
-              <span class="topic-explanation">${esc(summary)}</span>
-            </div>`;
-        }).join('');
-
-        container.innerHTML = html;
-
-      } catch (err) {
-        console.error(err);
-        container.innerHTML = `<div class="error-state">Couldn't load topics right now — please try again later.</div>`;
-      }
-    }
-
-    function esc(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    }
-
-    function fmtDate(raw) {
-      if (!raw) return '—';
-      const str = String(raw).trim();
-
-      // Google Visualization API date format: "Date(2024,0,15)"
-      const m = str.match(/Date\((\d+),(\d+),(\d+)\)/);
-      if (m) {
-        const d = new Date(+m[1], +m[2], +m[3]);
-        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-      }
-
-      // Numeric parts: DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD, etc.
-      const parts = str.split(/[\/\-\.]/);
-      if (parts.length === 3 && parts.every(p => /^\d+$/.test(p.trim()))) {
-        let [p1, p2, p3] = parts.map(p => +p.trim());
-        // YYYY-MM-DD (p1 is a 4-digit year)
-        if (p1 > 31) {
-          const d = new Date(p1, p2 - 1, p3);
-          if (!isNaN(d.getTime())) return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-        }
-        // DD/MM/YYYY (p3 is a 4-digit year, p2 <= 12)
-        let year = p3 < 100 ? p3 + 2000 : p3;
-        const tryDMY = new Date(year, p2 - 1, p1);
-        if (!isNaN(tryDMY.getTime()) && tryDMY.getMonth() === p2 - 1 && tryDMY.getDate() === p1) {
-          return tryDMY.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-        }
-        // MM/DD/YYYY fallback
-        const tryMDY = new Date(year, p1 - 1, p2);
-        if (!isNaN(tryMDY.getTime()) && tryMDY.getMonth() === p1 - 1 && tryMDY.getDate() === p2) {
-          return tryMDY.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-        }
-      }
-
-      // Last resort: let the browser parse it (handles ISO, long-form strings, etc.)
-      const d = new Date(str);
-      if (!isNaN(d.getTime())) {
-        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-      }
-
-      return str; // Return as-is if nothing worked
-    }
-
-    loadTopics();
-  </script>
-
+  <script src="js/calendar.js"></script>
   <script src="js/components.js"></script>
 </body>
 </html>
