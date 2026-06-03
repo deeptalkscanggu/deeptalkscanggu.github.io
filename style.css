@@ -1179,6 +1179,37 @@ footer a { color: var(--grey-dark); text-decoration: none; }
   transform: scale(1.08);
 }
 
+/* ── Fullscreen button ── */
+#btn-fullscreen {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.3);
+  background: transparent;
+  color: var(--grey-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  transition: opacity 0.2s, background 0.2s, border-color 0.2s;
+  z-index: 10;
+}
+
+#btn-fullscreen svg {
+  width: 16px;
+  height: 16px;
+}
+
+#btn-fullscreen:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.5);
+}
+
 .rnd-entry:not(.rnd-entry--done)::after {
   content: '|';
   color: rgba(0,0,0,0.45);

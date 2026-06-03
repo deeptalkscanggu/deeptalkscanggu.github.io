@@ -4,6 +4,9 @@
   var STORAGE_KEY  = 'dt-randomiser-v1';
   var TYPE_MS      = 38; // ms per character
 
+  var btnFullscreen  = document.getElementById('btn-fullscreen');
+  var iconExpand     = document.getElementById('icon-expand');
+  var iconCompress   = document.getElementById('icon-compress');
   var logo         = document.getElementById('rnd-logo');
   var heading      = document.getElementById('rnd-heading');
   var btnToEntries = document.getElementById('btn-to-entries');
@@ -204,6 +207,22 @@
     if (e.key === 'ArrowRight') { e.preventDefault(); drawNext(); }
     if (e.key === 'ArrowLeft')  { e.preventDefault(); drawPrev(); }
     if (e.key === 'Escape')     { switchTo('home'); }
+  });
+
+  // ── Fullscreen ───────────────────────────────────────────────
+
+  btnFullscreen.addEventListener('click', function () {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+
+  document.addEventListener('fullscreenchange', function () {
+    var isFs = !!document.fullscreenElement;
+    iconExpand.style.display   = isFs ? 'none'  : '';
+    iconCompress.style.display = isFs ? ''      : 'none';
   });
 
   // ── Init ─────────────────────────────────────────────────────
