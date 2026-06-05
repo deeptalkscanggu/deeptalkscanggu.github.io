@@ -129,16 +129,10 @@ async function loadTopics() {
       subjectEl.textContent = subject;
       infoEl.appendChild(subjectEl);
 
-      if (host) {
+      if (withContent) {
         var hostEl = document.createElement('div');
         hostEl.className = 'topic-host';
-        hostEl.textContent = host;
-        if (withContent) {
-          var withSpan = document.createElement('span');
-          withSpan.style.color = '#111';
-          withSpan.textContent = ' with ' + withContent;
-          hostEl.appendChild(withSpan);
-        }
+        hostEl.textContent = 'With ' + withContent;
         infoEl.appendChild(hostEl);
       }
 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; worker-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src ws://127.0.0.1:*; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — Deep Talks</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tools — Deep Talks" />
+  <meta property="og:description" content="Group circle discussions in Canggu, Bali. A community for meaningful conversations." />
+  <meta property="og:url" content="https://deeptalkscanggu.github.io/tools.html" />
+  <meta property="og:image" content="https://deeptalkscanggu.github.io/images/deeptalks-green.webp" />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#2b5c44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Deep Talks" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tools-page-hero {
+      background: #f2f2f2;
+      background-image: none;
+      min-height: 200px;
+      padding: calc(60px + 2.5rem) 2rem 2.5rem;
+      margin-top: 0;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+    .page-hero.tools-page-hero .page-hero-eyebrow {
+      color: var(--grey-dark);
+      margin-bottom: 0.85rem;
+    }
+    .page-hero.tools-page-hero h1 {
+      color: var(--grey-dark);
+    }
+
+    @media (max-width: 979px) {
+      .page-hero.tools-page-hero {
+        min-height: 160px;
+        padding: calc(60px + 2rem) 2rem 2rem;
+      }
+    }
+
+    .tools-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    .tools-intro {
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(200,230,201,0.35);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .tool-card:hover {
+      border-color: rgba(200,230,201,0.6);
+      background: rgba(200,230,201,0.07);
+    }
+
+    .tool-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tool-card-icon {
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
+      color: var(--grey-dark);
+      fill: currentColor;
+    }
+
+    .tool-card-title {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin: 0;
+    }
+
+    .tool-card-desc {
+      color: var(--green-dark);
+      font-size: 0.88rem;
+      line-height: 1.75;
+      margin: 0 0 0.75rem;
+    }
+
+    .tool-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .tool-card-list li {
+      color: var(--green-dark);
+      font-size: 0.86rem;
+      line-height: 1.7;
+      padding: 0.2rem 0 0.2rem 1.1rem;
+      position: relative;
+    }
+    .tool-card-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green-mid);
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav-root"></nav>
+
+  <section class="page-hero tools-page-hero">
+    <p class="page-hero-eyebrow">Session Utilities</p>
+    <h1>Tools</h1>
+  </section>
+
+  <div class="tools-content">
+
+    <!-- ── RANDOMISER ── -->
+    <div class="tool-card">
+      <div class="tool-card-header">
+        <svg class="tool-card-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6 18 6.67 18 7.5 17.33 9 16.5 9z"/>
+        </svg>
+        <h2 class="tool-card-title">Randomiser</h2>
+      </div>
+      <p class="tool-card-desc">Put in entries and get a random output. Sometimes we'll use a randomiser to determine what we talk about. This could be with:</p>
+      <ul class="tool-card-list">
+        <li><strong style="color: var(--grey-dark);">Hot Takes</strong> — everyone submits a hot take (controversial opinion) and we pick one at random</li>
+        <li><strong style="color: var(--grey-dark);">Quotes</strong> — we'll pick a random quote from a list</li>
+        <li><strong style="color: var(--grey-dark);">Words or WDYM (What Do You Mean?)</strong> — we'll pick a random word from a list</li>
+      </ul>
+      <a href="randomiser.html" class="btn-solid">Go to Randomiser</a>
+    </div>
+
+    <!-- ── QR CODES ── -->
+    <div class="tool-card">
+      <div class="tool-card-header">
+        <svg class="tool-card-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3h7v7H3V3zm1 1v5h5V4H4zm1 1h3v3H5V5zM3 14h7v7H3v-7zm1 1v5h5v-5H4zm1 1h3v3H5v-3zM14 3h7v7h-7V3zm1 1v5h5V4h-5zm1 1h3v3h-3V5zM14 14h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm-2 4h2v2h-2v-2zm2 0h2v2h-2v-2zm-4-2h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+        </svg>
+        <h2 class="tool-card-title">QR Codes</h2>
+      </div>
+      <p class="tool-card-desc">Enter links to show QR codes to the group if they need to visit a webpage or form for the Deep Talks discussion. Supports up to four links at once, displayed in a fullscreen grid.</p>
+      <a href="qr.html" class="btn-solid">Go to QR Codes</a>
+    </div>
+
+  </div>
+
+  <footer id="footer-root"></footer>
+  <script src="js/components.js"></script>
+  <script src="js/links.js"></script>
+</body>
+</html>
