@@ -33,12 +33,16 @@
   var transitioning = false;
   var displayCX = 0, displayCY = 0; // cached grid centre (relative to #qr-app)
 
+  function isMobile() { return window.matchMedia('(max-width: 600px)').matches; }
+
   // ── Badge positioning ────────────────────────────────────────
   // badge is position:absolute inside #qr-app, left:0 top:0
   // transform: translate(tx - bw/2, ty - bh/2) scale(s)
   // places the badge's visual centre at (tx, ty) regardless of scale.
+  // On mobile the badge is position:relative in document flow — skip all this.
 
   function snapBadge(tx, ty, sc) {
+    if (isMobile()) { badge.style.transition = 'none'; badge.style.transform = ''; return; }
     var bw = badge.offsetWidth;
     var bh = badge.offsetHeight;
     badge.style.transition = 'none';
@@ -47,6 +51,7 @@
   }
 
   function animateBadge(tx, ty, sc) {
+    if (isMobile()) return;
     var bw = badge.offsetWidth;
     var bh = badge.offsetHeight;
     badge.style.transition = 'transform 0.44s cubic-bezier(0.4, 0, 0.6, 1)';
@@ -66,6 +71,7 @@
   }
 
   function editTarget() {
+    if (isMobile()) { views.edit.style.paddingTop = ''; return { tx: 0, ty: 0, sc: 1 }; }
     var appRect = app.getBoundingClientRect();
     var sc  = 0.52;
     var bh  = badge.offsetHeight;
@@ -228,8 +234,14 @@
     iconCompress.style.display = isFs ? ''     : 'none';
   });
 
-  // Reposition on resize without animation
+  // Reposition on resize without animation (handles portrait↔landscape and desktop↔mobile)
   window.addEventListener('resize', function () {
+    if (isMobile()) {
+      badge.style.transition = 'none';
+      badge.style.transform = '';
+      views.edit.style.paddingTop = '';
+      return;
+    }
     var t = current === 'display' ? displayTarget() : editTarget();
     snapBadge(t.tx, t.ty, t.sc);
   });
