@@ -2,7 +2,7 @@ var WA_GROUPS = {
   deeptalks:  'https://chat.whatsapp.com/Gz3tE224rx66BuLqPn1vZv',
   lovetalks:  'https://chat.whatsapp.com/KKgVCEy0V8VHPWYDbO34bh',
   nalar:      'https://chat.whatsapp.com/J58fpgS46JiBZocS6NkYZw',
-  deepcrafts: 'https://chat.whatsapp.com/Gz3tE224rx66BuLqPn1vZv',
+  deepcrafts: 'https://chat.whatsapp.com/LyDEGojdgn09ETDzGKrjXu?mode=gi_t',
 };
 
 document.addEventListener('DOMContentLoaded', function () {
